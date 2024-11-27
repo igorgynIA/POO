@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante - Bem-vindo</title>
+    <title>Homepage Restaurante</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
         }
         h1 {
             font-size: 36px;
-            color: #333;
+            color: #000000;
         }
         .button {
             display: inline-block;
@@ -38,12 +38,13 @@
         }
     </style>
 </head>
-<body>
-    <h1>Bem-vindo ao Restaurante</h1>
-    <p>Escolha como deseja acessar o sistema:</p>
+<body style="background-color: #AE5B28;">
+    <h1>Chatbot Restaurante</h1>
+    <h2>Falar sobre a empresa</h2>
     <div>
         <a href="{{ url_for('login') }}" class="button">Acessar como Cliente</a>
         <a href="{{ url_for('login') }}" class="button admin">Acessar como Administrador</a>
     </div>
+    <img src= "{{ url_for('static', filename='img/comida.png') }}" style="max-width: 70%; height: auto;">
 </body>
 </html>
