@@ -3,7 +3,7 @@ from flask import request, render_template
 
 @app.route("/") 
 def home():
-    return render_template('teste.html', par1="Boa tarde", par2="Cliente")
+    return render_template('homepage.html')
 
 @app.route("/index") 
 def index():
