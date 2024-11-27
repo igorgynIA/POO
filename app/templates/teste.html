@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante - Bem-vindo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .admin {
+            background-color: #007BFF;
+        }
+        .admin:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Restaurante</h1>
+    <p>Escolha como deseja acessar o sistema:</p>
+    <div>
+        <a href="{{ url_for('login') }}" class="button">Acessar como Cliente</a>
+        <a href="{{ url_for('login') }}" class="button admin">Acessar como Administrador</a>
+    </div>
+</body>
+</html>

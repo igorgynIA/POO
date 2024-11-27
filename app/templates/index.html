@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <h1>Majin Boo Magro</h1>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }} ">
+        <img src= "{{ url_for('static', filename='img/majinboosemfundo.png') }}">
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    </head>
+    <body>
+        <br>Saudação: {{par1}}
+        <br>Cliente: {{par2}}
+        <br><br><br>
+        <br><a href="login">Autentique-se</a> ou <a href="signin">crie uma conta</a>. 
+    </body>
+</html>

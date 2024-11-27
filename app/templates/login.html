@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }} ">
+    </head>
+    <body>
+        <div style="text-align:center">
+            <p>Formulário de Autenticação</p>
+            <form action="autentica" method="POST">
+                <table>
+                    <tr>
+                        <td><label name="user">Usuário</label></td>
+                        <td><input type="text" id="user" name="user" placeholder="Digite o seu Usuário aqui."></td>
+                    </tr>
+                    <tr>
+                        <td><label name="pswrd">Senha</label></td>
+                        <td><input type="password" id="pswrd" name="pswrd" placeholder="Digite a sua Senha aqui."></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Autenticar"></td>
+                        <td><input type="reset" value="Limpar"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <br><a href="index">Página Inicial</a>
+    </body>
+</html>
