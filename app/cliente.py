@@ -5,17 +5,29 @@ from flask import request, render_template
 def home():
     return render_template('homepage.html')
 
-@app.route("/index") 
-def index():
-    return render_template('index.html', par1="Boa tarde", par2="Cliente")
-
 @app.route("/login")
 def login():
-    return render_template("login_cliente.html")
+    return render_template("login_adm.html")
 
 @app.route("/signin") 
 def signin():
     return render_template("formCli.html")
+
+@app.route("/inicio") 
+def inicio():
+    return render_template("inicio.html")
+
+@app.route("/funcionario") 
+def funcionario():
+    return render_template("funcionario.html")
+
+@app.route("/cardapio") 
+def cardapio():
+    return render_template("cardapio.html")
+
+@app.route("/pedidos") 
+def pedidos():
+    return render_template("pedidos.html")
 
 @app.route("/autentica", methods=['POST']) 
 def autentica():

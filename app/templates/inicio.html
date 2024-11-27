@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INÍCIO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            height: 100vh; /* Para garantir que a página ocupe toda a altura da tela */
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh; /* Deixe a sidebar com altura total */
+            top: 0;
+            left: 0;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-left: 300px; /* Adiciona a largura da sidebar para não sobrepor */
+            padding: 20px;
+            flex: 1; /* Garante que o conteúdo ocupe o restante do espaço */
+            overflow-x: hidden; /* Previne qualquer deslocamento horizontal inesperado */
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #000000;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .admin {
+            background-color: #007BFF;
+        }
+
+        .admin:hover {
+            background-color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">Início</a></li>
+            <li><a href="{{ url_for('funcionario') }}">Funcionários</a></li>
+            <li><a href="{{ url_for('cardapio') }}">Cardápio</a></li>
+            <li><a href="{{ url_for('pedidos') }}">Pedidos</a></li>
+            <li><a href="{{ url_for('home') }}">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Bem-vindo de volta!!!</h1>
+        <h2>ESTATÍSTICAS: </h2>
+        <img src="{{ url_for('static', filename='img/estatistica.png') }}" alt="Estatísticas">
+    </div>
+</body>
+</html>
