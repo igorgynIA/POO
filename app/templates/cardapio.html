@@ -47,7 +47,7 @@
         }
 
         .content {
-            margin-left: 500px; /* Adiciona a largura da sidebar */
+            margin-left: 600px; /* Adiciona a largura da sidebar */
             display: flex;
             flex-direction: column; /* Organiza tudo verticalmente */
             justify-content: center; /* Centraliza verticalmente */
@@ -98,19 +98,19 @@
 
         .button {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 30px 60px;
             font-size: 18px;
-            color: white;
-            background-color: #4CAF50;
+            color: black;
+            background-color: #F3BAB4;
             border: none;
-            border-radius: 5px;
+            border-radius: 15px;
             text-decoration: none;
             cursor: pointer;
             text-align: center;
         }
 
         .button:hover {
-            background-color: #45a049;
+            background-color: #F49F96;
         }
     </style>
 </head>
@@ -149,6 +149,12 @@
                     <h2>Item 4</h2>
                     <p>Descrição do item 4</p>
                 </div>
+                <div class="item">
+                {% for comida in itens['comidas'] %}
+                    <h2>{{ comida['nome'] }}</h2>
+                    <p> {{ comida['descricao'] }}</p>
+                {% endfor %}
+                </div>
             </div>
 
             <!-- Coluna BEBIDAS -->
@@ -161,6 +167,8 @@
                 <div class="item">
                     <h2>Item 2</h2>
                     <p>Descrição do item 2</p>
+                </div>
+                <div class="item">
                     <h2>Item 3</h2>
                     <p>Descrição do item 3</p>
                 </div>
@@ -168,6 +176,12 @@
                     <h2>Item 4</h2>
                     <p>Descrição do item 4</p>
                 </div>
+                <div class="item">
+                    {% for bebida in itens['bebidas'] %}
+                        <h2>{{ bebida['nome'] }}</p>
+                        <p>{{ bebida['descricao'] }}</p>
+                    {% endfor %}
+            </div>
             </div>
         </div>
 

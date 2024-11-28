@@ -1,1 +1,155 @@
-<h1> Olá, esse é o adicionar_item </h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADICIONAR ITEM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh; /* Altura total */
+            position: fixed; /* Fixa na lateral esquerda */
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-left: 270px; /* Adiciona a largura da sidebar */
+            padding: 20px;
+            width: calc(100% - 270px); /* Calcula o espaço restante */
+        }
+
+        .content h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-container label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container textarea {
+            height: 100px;
+            resize: none; /* Remove a opção de redimensionar */
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: black;
+            background-color: #F3BAB4;
+            border: none;
+            border-radius: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+            flex: 1; /* Faz os botões ocuparem o mesmo tamanho */
+            margin: 0 10px;
+            display: inline-block; /
+        }
+        
+        .button:hover {
+            background-color: #F49F96;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">Início</a></li>
+            <li><a href="{{ url_for('funcionario') }}">Funcionários</a></li>
+            <li><a href="{{ url_for('cardapio') }}">Cardápio</a></li>
+            <li><a href="{{ url_for('pedidos') }}">Pedidos</a></li>
+            <li><a href="{{ url_for('home') }}">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>ADICIONAR NOVO ITEM</h1>
+            <div class="form-container">
+                <form action="{{ url_for('salvar_item') }}" method="POST">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome do item" required>
+            
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" placeholder="Digite a descrição do item" required></textarea>
+            
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="comida">Comida</option>
+                        <option value="bebida">Bebida</option>
+                    </select>
+            
+                    <div class="buttons">
+                        <button type="submit" class="button">SALVAR</button>
+                        <a href="{{ url_for('cardapio') }}" class="button">CANCELAR</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
