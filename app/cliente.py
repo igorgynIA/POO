@@ -9,9 +9,13 @@ def home():
 def index():
     return render_template('index.html', par1="Boa tarde", par2="Cliente")
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
+@app.route("/login_adm")
+def login_adm():
+    return render_template("login_adm.html")
+
+@app.route("/login_cli")
+def login_cli():
+    return render_template("login_cli.html")
 
 @app.route("/signin") 
 def signin():
