@@ -1,1 +1,154 @@
-<h1> Olá </h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #000;
+        }
+
+        .order {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .order h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .order p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .order .total {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .btn-exit {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            background-color: #FF4D4D;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .btn-exit:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">Início</a></li>
+            <li><a href="{{ url_for('funcionario') }}">Funcionários</a></li>
+            <li><a href="{{ url_for('cardapio') }}">Cardápio</a></li>
+            <li><a href="{{ url_for('pedidos') }}">Pedidos</a></li>
+            <li><a href="{{ url_for('home') }}">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>ACOMPANHAMENTO</h1>
+        <h2>VOCÊ TEVE X PEDIDOS ESSA SEMANA</h2>
+        <p>O ITEM MAIS PEDIDO FOI: Y</p>
+
+        <div class="order">
+            <h3>PEDIDO Nº XXX</h3>
+            <p>Item 1: R$XX,XX</p>
+            <p>Item 2: R$YY,YY</p>
+            <p class="total">TOTAL: R$ZZ,ZZ</p>
+            <p>DATA: XX/YY/20WW</p>
+        </div>
+
+        <div class="order">
+            <h3>PEDIDO Nº YYY</h3>
+            <p>Item 1: R$XX,XX</p>
+            <p>Item 2: R$YY,YY</p>
+            <p class="total">TOTAL: R$ZZ,ZZ</p>
+            <p>DATA: XX/YY/20WW</p>
+        </div>
+
+        <div class="order">
+            <h3>PEDIDO Nº ZZZ</h3>
+            <p>Item 1: R$XX,XX</p>
+            <p>Item 2: R$YY,YY</p>
+            <p class="total">TOTAL: R$ZZ,ZZ</p>
+            <p>DATA: XX/YY/20WW</p>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="btn-exit">SAIR</a>
+    </div>
+</body>
+</html>
+
