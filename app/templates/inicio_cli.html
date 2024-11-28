@@ -96,19 +96,19 @@
     <div class="sidebar">
         <h2>Menu</h2>
         <ul>
-            <li><a href="{{ url_for('inicio') }}">Início</a></li>
-            <li><a href="{{ url_for('funcionario') }}">Funcionários</a></li>
-            <li><a href="{{ url_for('cardapio') }}">Cardápio</a></li>
-            <li><a href="{{ url_for('pedidos') }}">Pedidos</a></li>
-            <li><a href="{{ url_for('home') }}">Sair</a></li>
+            <li><a href="cardapio_cli">Cardápio</a></li>
+            <li><a href="historico">Histórico</a></li>
+            <li><a href="atualizar_dados">Conta</a></li>
+            <li><a href="preferencias_cli">Preferências</a></li>
+            <li><a href="/">Sair</a></li>
         </ul>
     </div>
 
     <!-- Main content -->
     <div class="content">
         <h1>Bem-vindo de volta, {{nome}} !!!</h1>
-        <h2>ESTATÍSTICAS: </h2>
-        <img src="{{ url_for('static', filename='img/estatistica.png') }}" alt="Estatísticas">
+        <h2></h2>
+        <img src="{{ url_for('static', filename='img/chat.png') }}" alt="Estatísticas">
     </div>
 </body>
 </html>

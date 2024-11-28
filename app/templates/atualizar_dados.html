@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+        <title>Cadastro de Cliente</title>
         <style>
             body {
                 font-family: 'Arial', sans-serif;
@@ -15,7 +14,7 @@
                 margin: 0;
             }
 
-            .login-container {
+            .form-container {
                 background-color: #ffffff;
                 border-radius: 8px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,7 +24,7 @@
                 text-align: center;
             }
 
-            .login-container h2 {
+            .form-container h2 {
                 margin-bottom: 1rem;
                 color: #333;
             }
@@ -43,6 +42,7 @@
             }
 
             .form-group input[type="text"],
+            .form-group input[type="email"],
             .form-group input[type="password"] {
                 width: 100%;
                 padding: 0.5rem;
@@ -51,33 +51,20 @@
                 font-size: 0.9rem;
             }
 
-            .form-group input[type="submit"],
-            .form-group input[type="reset"] {
-                width: 48%;
+            .form-group input[type="submit"] {
+                width: 100%;
                 padding: 0.5rem;
                 border: none;
                 border-radius: 4px;
+                background-color: #4CAF50;
                 color: #fff;
                 font-size: 0.9rem;
-                margin-top: 1rem;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
             }
 
-            .form-group input[type="submit"] {
-                background-color: #4CAF50;
-            }
-
             .form-group input[type="submit"]:hover {
                 background-color: #45a049;
-            }
-
-            .form-group input[type="reset"] {
-                background-color: #f44336;
-            }
-
-            .form-group input[type="reset"]:hover {
-                background-color: #da190b;
             }
 
             .back-link {
@@ -91,26 +78,30 @@
                 text-decoration: underline;
             }
         </style>
-    </head>
-    <body>
-        <div class="login-container">
-            <h2>Formulário de Autenticação</h2>
-            <form action="inicio_cli" method="POST">
-                <div class="form-group">
-                    <label for="user">Usuário</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o seu Usuário aqui.">
-                </div>
-                <div class="form-group">
-                    <label for="pswrd">Senha</label>
-                    <input type="password" id="senha" name="senha" placeholder="Digite a sua Senha aqui.">
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Autenticar">
-                    <input type="reset" value="Limpar">
-                </div>
-            </form>
-            <a class="register-button" href="/cadastro_cli">Cadastrar-se</a>
-            <a class="back-link" href="/">Página Inicial</a>
-        </div>
-    </body>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Atualize seu dados</h2>
+        <form action="atualizar_cliente" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 0000-0000" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit">Atualizar</button>
+        </form>
+        <a href="/" class="link">Voltar para a página inicial</a>
+    </div>
+</body>
 </html>
