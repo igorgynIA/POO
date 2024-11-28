@@ -37,6 +37,33 @@ def cardapio():
 def pedidos():
     return render_template("pedidos.html")
 
+@app.route("/cardapio_cli") 
+def cardapio_cli():
+    return render_template("cardapio_cli.html")
+
+@app.route("/historico") 
+def historico():
+    return render_template("historico.html")
+
+@app.route("/conta_cli") 
+def conta_cli():
+    return render_template("conta_cli.html")
+
+@app.route("/preferencias_cli") 
+def preferencias_cli():
+    return render_template("preferencias_cli.html")
+
+@app.route("/atualizar_dados") 
+def atualizar_dados():
+    return render_template("atualizar_dados.html")
+
+@app.route("/atualizar_cliente", methods=['POST']) 
+def atualizar_cli():
+    nome = request.form['nome']
+    email = request.form['email']
+    telefone = request.form['telefone']
+    senha = request.form['senha']
+    return render_template('conta_cli.html', nome=nome, email=email, telefone=telefone, senha=senha)
 
 @app.route("/cliente", methods=['POST']) 
 def cadastrar_cli():

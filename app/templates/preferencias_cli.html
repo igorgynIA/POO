@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferências</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-left: 300px;
+            padding: 20px;
+            flex: 1;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #000000;
+        }
+
+        .preferences {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 22%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .column h3 {
+            margin-top: 0;
+        }
+
+        .column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .column ul li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="cardapio_cli">Cardápio</a></li>
+            <li><a href="historico">Histórico</a></li>
+            <li><a href="atualizar_dados">Conta</a></li>
+            <li><a href="preferencias_cli">Preferências</a></li>
+            <li><a href="/">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Preferências</h1>
+        <div class="preferences">
+            <div class="column">
+                <h3>Ingredientes</h3>
+                <ul>
+                    <li><input type="checkbox" id="ingrediente1"> <label for="ingrediente1">Ingrediente 1</label></li>
+                    <li><input type="checkbox" id="ingrediente2"> <label for="ingrediente2">Ingrediente 2</label></li>
+                    <li><input type="checkbox" id="ingrediente3"> <label for="ingrediente3">Ingrediente 3</label></li>
+                    <li><input type="checkbox" id="ingrediente4"> <label for="ingrediente4">Ingrediente 4</label></li>
+                    <li><input type="checkbox" id="ingrediente5"> <label for="ingrediente5">Ingrediente 5</label></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Pratos</h3>
+                <ul>
+                    <li><input type="checkbox" id="prato1"> <label for="prato1">Prato 1</label></li>
+                    <li><input type="checkbox" id="prato2"> <label for="prato2">Prato 2</label></li>
+                    <li><input type="checkbox" id="prato3"> <label for="prato3">Prato 3</label></li>
+                    <li><input type="checkbox" id="prato4"> <label for="prato4">Prato 4</label></li>
+                    <li><input type="checkbox" id="prato5"> <label for="prato5">Prato 5</label></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Bebidas</h3>
+                <ul>
+                    <li><input type="checkbox" id="bebida1"> <label for="bebida1">Bebida 1</label></li>
+                    <li><input type="checkbox" id="bebida2"> <label for="bebida2">Bebida 2</label></li>
+                    <li><input type="checkbox" id="bebida3"> <label for="bebida3">Bebida 3</label></li>
+                    <li><input type="checkbox" id="bebida4"> <label for="bebida4">Bebida 4</label></li>
+                    <li><input type="checkbox" id="bebida5"> <label for="bebida5">Bebida 5</label></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Alergias</h3>
+                <ul>
+                    <li><input type="checkbox" id="alergia1"> <label for="alergia1">Alergia 1</label></li>
+                    <li><input type="checkbox" id="alergia2"> <label for="alergia2">Alergia 2</label></li>
+                    <li><input type="checkbox" id="alergia3"> <label for="alergia3">Alergia 3</label></li>
+                    <li><input type="checkbox" id="alergia4"> <label for="alergia4">Alergia 4</label></li>
+                    <li><input type="checkbox" id="alergia5"> <label for="alergia5">Alergia 5</label></li>
+                </ul>
+            </div>
+        </div>
+        <a href="/" class="link">Voltar para a página inicial</a>
+    </div>
+</body>
+</html>
