@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARDÁPIO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            height: 100vh; /* Ocupa a altura total da tela */
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh; /* Altura total */
+            position: fixed; /* Fixa na lateral esquerda */
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-left: 600px; /* Adiciona a largura da sidebar */
+            display: flex;
+            flex-direction: column; /* Organiza tudo verticalmente */
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
+            height: 100vh;
+        }
+
+        .columns {
+            display: flex; /* Cria as duas colunas lado a lado */
+            gap: 30px; /* Espaço entre as colunas */
+            justify-content: center; /* Centraliza as colunas horizontalmente */
+            margin-bottom: 25px; /* Espaço entre colunas e botão */
+        }
+
+        .column {
+            flex: 1; /* Faz as colunas ocuparem tamanhos iguais */
+            max-width: 400px; /* Limita a largura máxima de cada coluna */
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .column h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center; /* Centraliza o texto do título */
+        }
+
+        .item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .item h2 {
+            font-size: 18px;
+            margin: 0;
+            color: #555;
+        }
+
+        .item p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 30px 60px;
+            font-size: 18px;
+            color: black;
+            background-color: #F3BAB4;
+            border: none;
+            border-radius: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #F49F96;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">Início</a></li>
+            <li><a href="{{ url_for('funcionario') }}">Funcionários</a></li>
+            <li><a href="{{ url_for('cardapio') }}">Cardápio</a></li>
+            <li><a href="{{ url_for('pedidos') }}">Pedidos</a></li>
+            <li><a href="{{ url_for('home') }}">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="columns">
+            <!-- Coluna COMIDAS -->
+            <div class="column">
+                <h1>COMIDAS</h1>
+                <div class="item">
+                    <h2>Item 1</h2>
+                    <p>Descrição do item 1</p>
+                </div>
+                <div class="item">
+                    <h2>Item 2</h2>
+                    <p>Descrição do item 2</p>
+                </div>
+                <div class="item">
+                    <h2>Item 3</h2>
+                    <p>Descrição do item 3</p>
+                </div>
+                <div class="item">
+                    <h2>Item 4</h2>
+                    <p>Descrição do item 4</p>
+                </div>
+                <div class="item">
+                {% for comida in itens['comidas'] %}
+                    <h2>{{ comida['nome'] }}</h2>
+                    <p> {{ comida['descricao'] }}</p>
+                {% endfor %}
+                </div>
+            </div>
+
+            <!-- Coluna BEBIDAS -->
+            <div class="column">
+                <h1>BEBIDAS</h1>
+                <div class="item">
+                    <h2>Item 1</h2>
+                    <p>Descrição do item 1</p>
+                </div>
+                <div class="item">
+                    <h2>Item 2</h2>
+                    <p>Descrição do item 2</p>
+                </div>
+                <div class="item">
+                    <h2>Item 3</h2>
+                    <p>Descrição do item 3</p>
+                </div>
+                <div class="item">
+                    <h2>Item 4</h2>
+                    <p>Descrição do item 4</p>
+                </div>
+                <div class="item">
+                    {% for bebida in itens['bebidas'] %}
+                        <h2>{{ bebida['nome'] }}</p>
+                        <p>{{ bebida['descricao'] }}</p>
+                    {% endfor %}
+            </div>
+            </div>
+        </div>
+
+        <!-- Botão ADICIONAR ITEM -->
+        <a href="adicionar_item" class="button">ADICIONAR ITEM</a>
+    </div>
+</body>
+</html>
