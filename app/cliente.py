@@ -29,6 +29,10 @@ def cardapio():
 def pedidos():
     return render_template("pedidos.html")
 
+@app.route("/adicionar_item") 
+def adicionar_item():
+    return render_template("teste.html")
+
 @app.route("/autentica", methods=['POST']) 
 def autentica():
     user = request.form['user']

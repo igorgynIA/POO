@@ -11,7 +11,7 @@
             padding: 0;
             background-color: #f8f9fa;
             display: flex;
-            height: 100vh; /* Ocupa a altura total da tela */
+            height: 100vh; /* Para garantir que a página ocupe toda a altura da tela */
         }
 
         .sidebar {
@@ -19,8 +19,8 @@
             background-color: #333;
             color: white;
             padding: 20px;
-            height: 100vh; /* Altura total */
-            position: fixed; /* Fixa na lateral esquerda */
+            height: 100vh; /* Deixe a sidebar com altura total */
+            position: fixed; /* Fixa a sidebar na lateral */
         }
 
         .sidebar h2 {
@@ -47,24 +47,17 @@
         }
 
         .content {
-            margin-left: 500px; /* Adiciona a largura da sidebar */
-            display: flex;
-            flex-direction: column; /* Organiza tudo verticalmente */
-            justify-content: center; /* Centraliza verticalmente */
-            align-items: center; /* Centraliza horizontalmente */
-            height: 100vh;
+            margin-left: 270px; /* Adiciona a largura da sidebar para não sobrepor */
+            padding: 20px;
         }
 
         .columns {
-            display: flex; /* Cria as duas colunas lado a lado */
-            gap: 30px; /* Espaço entre as colunas */
-            justify-content: center; /* Centraliza as colunas horizontalmente */
-            margin-bottom: 25px; /* Espaço entre colunas e botão */
+            display: flex; /* Flexbox para organizar as colunas lado a lado */
+            gap: 20px; /* Espaço entre as colunas */
         }
 
         .column {
-            flex: 1; /* Faz as colunas ocuparem tamanhos iguais */
-            max-width: 400px; /* Limita a largura máxima de cada coluna */
+            flex: 1; /* Faz as colunas ocuparem espaços iguais */
             background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -76,7 +69,6 @@
             font-size: 24px;
             margin-bottom: 20px;
             color: #333;
-            text-align: center; /* Centraliza o texto do título */
         }
 
         .item {
@@ -97,7 +89,8 @@
         }
 
         .button {
-            display: inline-block;
+            display: block;
+            margin: 20px auto;
             padding: 15px 30px;
             font-size: 18px;
             color: white;
@@ -141,14 +134,7 @@
                     <h2>Item 2</h2>
                     <p>Descrição do item 2</p>
                 </div>
-                <div class="item">
-                    <h2>Item 3</h2>
-                    <p>Descrição do item 3</p>
-                </div>
-                <div class="item">
-                    <h2>Item 4</h2>
-                    <p>Descrição do item 4</p>
-                </div>
+                <!-- Adicionar mais itens -->
             </div>
 
             <!-- Coluna BEBIDAS -->
@@ -161,13 +147,8 @@
                 <div class="item">
                     <h2>Item 2</h2>
                     <p>Descrição do item 2</p>
-                    <h2>Item 3</h2>
-                    <p>Descrição do item 3</p>
                 </div>
-                <div class="item">
-                    <h2>Item 4</h2>
-                    <p>Descrição do item 4</p>
-                </div>
+                <!-- Adicionar mais itens -->
             </div>
         </div>
 
