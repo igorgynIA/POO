@@ -4,184 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Funcionário</title>
-    <!--
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            background-color: #f8f9fa;
         }
 
         .form-container {
             background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
             text-align: center;
         }
 
-        .form-container h2 {
-            margin-bottom: 1rem;
-            color: #333;
+        h1 {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
         }
 
-        .form-group {
-            margin-bottom: 1rem;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555555;
             text-align: left;
+            margin-bottom: 5px;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            color: #555;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="cargo"],
-        .form-group input[type="salario"],
-        .form-group input[type="banco"],
-        .form-group input[type="cpf"] {
+        input {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
             width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 0.9rem;
+            background-color: #f9f9f9;
         }
 
-        .form-group input[type="submit"] {
-            width: 100%;
-            padding: 0.5rem;
+        input:focus {
+            outline: none;
+            border-color: #007BFF;
+            background-color: #ffffff;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #ffffff;
             border: none;
-            border-radius: 4px;
-            background-color: #4CAF50;
-            color: #fff;
-            font-size: 0.9rem;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        .form-group input[type="submit"]:hover {
-            background-color: #45a049;
+        button:hover {
+            background-color: #0056b3;
         }
 
-        .back-link {
-            display: block;
-            margin-top: 1rem;
-            color: #007BFF;
+        a {
+            display: inline-block;
+            margin-top: 15px;
             text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
         }
 
-        .back-link:hover {
+        a:hover {
             text-decoration: underline;
         }
     </style>
--->
-
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f4f9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-
-    .form-container {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
-    }
-
-    .form-container h1 {
-        margin-bottom: 2rem;
-        color: #333;
-    }
-
-    .form-group {
-        margin-bottom: 1rem;
-        text-align: left;
-    }
-
-    .form-group label {
-        display: block;
-        font-size: 0.9rem;
-        color: #555;
-        margin-bottom: 0.5rem;
-    }
-
-    .form-group input[type="text"] {
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 0.9rem;
-    }
-
-    .form-group button {
-        width: 100%;
-        padding: 0.5rem;
-        border: none;
-        border-radius: 4px;
-        background-color: #4CAF50;
-        color: #fff;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .form-group button:hover {
-        background-color: #45a049;
-    }
-
-    .back-link {
-        display: block;
-        margin-top: 1rem;
-        color: #007BFF;
-        text-decoration: none;
-    }
-
-    .back-link:hover {
-        text-decoration: underline;
-    }
-</style>
 </head>
 <body>
-    <h1>Adicionar Novo Funcionário</h1>
-    <form method="POST" action="/funcionario">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        <br><br>
-
-        <label for="cargo">Cargo:</label>
-        <input type="text" id="cargo" name="cargo" required>
-        <br><br>
-
-        <label for="salario">Salário:</label>
-        <input type="text" id="salario" name="salario" required>
-        <br><br>
-
-        <label for="banco">Banco:</label>
-        <input type="text" id="banco" name="banco">
-        <br><br>
-
-        <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf" required>
-        <br><br>
-
-        <button type="submit">Confirmar</button>
-    </form>
+    <div class="form-container">
+        <h1>Adicionar Novo Funcionário</h1>
+        <form method="POST" action="/funcionario">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+    
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required>
+    
+            <label for="salario">Salário:</label>
+            <input type="text" id="salario" name="salario" required>
+    
+            <label for="banco">Banco:</label>
+            <input type="text" id="banco" name="banco">
+    
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+    
+            <button type="submit">Confirmar</button>
+        </form>    
+    </div>
 </body>
 </html>
