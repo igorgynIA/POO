@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORMAÇÕES SOBRE FUNCIONÁRIOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-left: 300px;
+            padding: 20px;
+            flex: 1;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #000000;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button-green {
+            background-color: #45a049;
+        }
+
+        .button-red {
+            background-color: firebrick;
+        }
+
+        .button-blue {
+            background-color: #007BFF;
+        }
+
+        .admin {
+            background-color: #007BFF;
+        }
+
+        .admin:hover {
+            background-color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .employees-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .employee {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: calc(33.333% - 20px); /* Ajuste para três colunas */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .employee ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .employee ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">Início</a></li>
+            <li><a href="{{ url_for('funcionario') }}">Funcionários</a></li>
+            <li><a href="{{ url_for('cardapio') }}">Cardápio</a></li>
+            <li><a href="{{ url_for('pedidos') }}">Pedidos</a></li>
+            <li><a href="{{ url_for('home') }}">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Informações sobre funcionários</h1>
+
+        <h2>Custo total dos funcionários:</h2>
+        <h3>Os seus funcionários custam um total de R$ xxxx,xx por mês.</h3>
+
+        <div class="employees-container">
+            {% for funcionario in funcionarios %}
+            <div class="employee" id="funcionario-{{ funcionario.id }}">
+                <ul>
+                    <li><strong>Nome:</strong> {{ funcionario.nome }}</li>
+                    <li><strong>Cargo:</strong> {{ funcionario.cargo }}</li>
+                    <li><strong>Salário:</strong> {{ funcionario.salario }}</li>
+                    <li><strong>Banco:</strong> {{ funcionario.banco }}</li>
+                    <li><strong>CPF:</strong> {{ funcionario.cpf }}</li>
+                </ul>
+                <form action="{{ url_for('remove_funcionario', id=funcionario.id) }}" method="POST" style="display: inline;">
+                    <button class="button button-red" type="submit">Remover funcionário</button>
+                </form>
+                <div>
+                    <a href="{{ url_for('editar_funcionario', id=funcionario.id) }}" class="button button-blue">Editar</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div>
+            <a href="adicionar_funcionario" class="button button-green">Adicionar funcionário</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -25,9 +25,55 @@ def cadastro_rest():
 def inicio():
     return render_template("inicio.html")
 
-@app.route("/funcionario") 
+
+funcionarios = [
+    {"id": 1, "nome": "Nome: João", "cargo": "Cargo: Gerente", "salario": "Salario: R$ xxxx,xx", "banco": "Santander...", "cpf": "000.000.000-00"},
+    {"id": 2, "nome": "Nome: Maria", "cargo": "Cargo: Atendente", "salario": "Salario: R$ yyyy,yy", "banco": "Inter...", "cpf": "111.111.111-11"},
+]
+
+@app.route("/funcionario", methods=["GET", "POST"])
 def funcionario():
-    return render_template("funcionario.html")
+    global funcionarios  
+    if request.method == "POST":
+        nome = request.form.get("nome")
+        cargo = request.form.get("cargo")
+        salario = request.form.get("salario")
+        banco = request.form.get("banco")
+        cpf = request.form.get("cpf")
+        funcionarios.append({"id": len(funcionarios) + 1, "nome": nome, "cargo": cargo, "salario": salario, "banco": banco, "cpf": cpf})
+    return render_template("funcionario.html", funcionarios=funcionarios)
+
+@app.route("/adicionar_funcionario") 
+def adicionar_funcionario():
+    nome = request.form.get('nome')
+    return render_template("adicionar_funcionario.html")
+
+
+@app.route("/remove_funcionario/<int:id>", methods=["POST"])
+def remove_funcionario(id):
+    global funcionarios
+    funcionarios = [f for f in funcionarios if f["id"] != id]
+    return redirect(url_for("funcionario"))
+
+@app.route("/editar_funcionario/<int:id>", methods=["GET", "POST"])
+def editar_funcionario(id):
+    global funcionarios
+    # Busca o funcionário pelo ID
+    funcionario = next((f for f in funcionarios if f["id"] == id), None)
+    if not funcionario:
+        return "Funcionário não encontrado!", 404
+
+    if request.method == "POST":
+        # Atualiza os dados do funcionário
+        funcionario["nome"] = request.form.get("nome")
+        funcionario["cargo"] = request.form.get("cargo")
+        funcionario["salario"] = request.form.get("salario")
+        funcionario["banco"] = request.form.get("banco")
+        funcionario["cpf"] = request.form.get("cpf")
+        return redirect(url_for("funcionario"))
+
+    # Renderiza o template de edição com os dados do funcionário
+    return render_template("editar_funcionario.html", funcionario=funcionario)
 
 @app.route("/cardapio")
 def cardapio():
