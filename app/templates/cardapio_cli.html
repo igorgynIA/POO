@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            height: 100vh; /* Ocupa a altura total da tela */
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh; /* Altura total */
+            position: fixed; /* Fixa na lateral esquerda */
+        }
+
+        .sidebar h2 {
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-left: 250px; /* Adiciona a largura da sidebar */
+            display: flex;
+            flex-direction: column; /* Organiza tudo verticalmente */
+            justify-content: flex-start; 
+            align-items: center; /* Centraliza horizontalmente */
+            height: 100vh;
+            padding: 20px 20px 20px 40px;
+            width: calc(100% - 250px);
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .cardapio-sections {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            width: 100%;
+            flex: 1;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            color: black;
+            margin-bottom: 20px;  
+            text-align: center;  
+        }
+
+        .columns {
+            display: flex; /* Cria as duas colunas lado a lado */
+            justify-content: center; /* Garante espaço uniforme entre colunas */
+            gap: 20px; /* Espaço entre as colunas */
+            flex-wrap: wrap; /* Permite ajustar no caso de telas menores */
+            width: 100%; /* Centraliza as colunas horizontalmente */
+            margin-left: 20px; /* Espaço entre colunas e botão */
+        }
+
+        .column {
+            flex: 1; /* Faz as colunas ocuparem tamanhos iguais */
+            max-width: 400px; /* Limita a largura máxima de cada coluna */
+            background-color: #ffffff;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 20px;
+            width: 30%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .column h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .item {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #555;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0; /* Remove o espaço inferior do último item */
+        }
+        .section:nth-child(1) h2 { /* Centraliza o título "COMIDAS" */
+            width: 100%; /* Ocupa todo o espaço das colunas */
+            text-align: center;
+            margin-left: 15px;
+        }
+
+        .section:nth-child(2) h2 { /* Centraliza o título "BEBIDAS" na única coluna */
+            text-align: center;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body style="background-color: #AE5B28;">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="cardapio_cli">Cardápio</a></li>
+            <li><a href="historico">Histórico</a></li>
+            <li><a href="atualizar_dados">Conta</a></li>
+            <li><a href="preferencias_cli">Preferências</a></li>
+            <li><a href="/">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>CARDÁPIO</h1>
+        <div class="cardapio-sections">
+            <!-- Seção de COMIDAS -->
+            <div class="section">
+                <h2>COMIDAS</h2>
+                <div class="columns">
+                    <div class="column">
+                        <div class="item">Hambúrguer - R$71,99</div>
+                        <div class="item">Parmegiana - R$69,99</div>
+                        <div class="item">Nuggets - R$18,00</div>
+                        <div class="item">Macarrão - R$15,00</div>
+                    </div>
+                    <div class="column">
+                        <div class="item">Espetinho - R$59,99</div>
+                        <div class="item">Feijão Tropeiro - R$29,99</div>
+                        <div class="item">Marmita - R$40,00</div>
+                        <div class="item">Sorvete - R$7,00</div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Seção de BEBIDAS -->
+            <div class="section">
+                <h2>BEBIDAS</h2>
+                <div class="columns">
+                    <div class="column">
+                        <div class="item">Chopp - R$35,99</div>
+                        <div class="item">Suco - R$20,00</div>
+                        <div class="item">Refrigerante - R$15,00</div>
+                        <div class="item">Água - R$15,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

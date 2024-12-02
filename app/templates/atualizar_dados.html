@@ -2,106 +2,160 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-        <title>Cadastro de Cliente</title>
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f9;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-            }
+    <title>Cadastro de Cliente</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex; /* Cria um layout flex para posicionar a sidebar e o formulário */
+            margin: 0;
+            height: 100vh; /* Altura total da tela */
+        }
 
-            .form-container {
-                background-color: #ffffff;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                padding: 2rem;
-                width: 100%;
-                max-width: 400px;
-                text-align: center;
-            }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh; /* Altura total */
+            position: fixed; /* Fixa na lateral esquerda */
+        }
 
-            .form-container h2 {
-                margin-bottom: 1rem;
-                color: #333;
-            }
+        .sidebar h2 {
+            color: #fff;
+        }
 
-            .form-group {
-                margin-bottom: 1rem;
-                text-align: left;
-            }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
 
-            .form-group label {
-                display: block;
-                font-size: 0.9rem;
-                color: #555;
-                margin-bottom: 0.5rem;
-            }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
 
-            .form-group input[type="text"],
-            .form-group input[type="email"],
-            .form-group input[type="password"] {
-                width: 100%;
-                padding: 0.5rem;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                font-size: 0.9rem;
-            }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
 
-            .form-group input[type="submit"] {
-                width: 100%;
-                padding: 0.5rem;
-                border: none;
-                border-radius: 4px;
-                background-color: #4CAF50;
-                color: #fff;
-                font-size: 0.9rem;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
 
-            .form-group input[type="submit"]:hover {
-                background-color: #45a049;
-            }
+        .main-content {
+            margin-left: 250px; /* Garante que o formulário fique ao lado da sidebar */
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente os campos */
+            align-items: center; /* Centraliza verticalmente */
+            height: 100vh; /* Altura total para centralização */
+            width: calc(100% - 250px); /* Ajusta o espaço restante da página */
+        }
 
-            .back-link {
-                display: block;
-                margin-top: 1rem;
-                color: #007BFF;
-                text-decoration: none;
-            }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
 
-            .back-link:hover {
-                text-decoration: underline;
-            }
-        </style>
+        .form-container h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        .link {
+            display: block;
+            margin-top: 1rem;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body style="background-color: #AE5B28;">
-    <div class="form-container">
-        <h2>Atualize seu dados</h2>
-        <form action="atualizar_cliente" method="POST">
-            <div class="form-group">
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
-            </div>
-            <div class="form-group">
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 0000-0000" required>
-            </div>
-            <div class="form-group">
-                <label for="senha">CPF</label>
-                <input type="password" id="senha" name="senha" placeholder="Digite seu CPF" required>
-            </div>
-            <button type="submit">Atualizar</button>
-        </form>
-        <a href="/" class="link">Voltar para a página inicial</a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="cardapio_cli">Cardápio</a></li>
+            <li><a href="historico">Histórico</a></li>
+            <li><a href="atualizar_dados">Conta</a></li>
+            <li><a href="preferencias_cli">Preferências</a></li>
+            <li><a href="/">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <div class="form-container">
+            <h2>Atualize seus dados</h2>
+            <form action="atualizar_cliente" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">CPF</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite seu CPF" required>
+                </div>
+                <button type="submit">Atualizar</button>
+            </form>
+            <a href="/" class="link">Voltar para a página inicial</a>
+        </div>
     </div>
 </body>
 </html>

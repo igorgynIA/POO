@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Funcionário</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555555;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            width: 100%;
+            background-color: #f9f9f9;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #007BFF;
+            background-color: #ffffff;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Adicionar Novo Funcionário</h1>
+        <form method="POST" action="/funcionario">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+    
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required>
+    
+            <label for="salario">Salário:</label>
+            <input type="text" id="salario" name="salario" required>
+    
+            <label for="banco">Banco:</label>
+            <input type="text" id="banco" name="banco">
+    
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+    
+            <button type="submit">Confirmar</button>
+        </form>    
+    </div>
+</body>
+</html>
