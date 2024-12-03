@@ -5,7 +5,7 @@ from flask import request, render_template, redirect, url_for
 def login_adm():
     return render_template("login_adm.html")
 
-@app.route("/inicio") 
+@app.route("/inicio")
 def inicio():
     return render_template("inicio.html")
 
@@ -77,10 +77,6 @@ itens_cardapio = {
     "bebidas": []
 }
 
-@app.route("/pedidos") 
-def pedidos():
-    return render_template("pedidos.html")
-
 @app.route('/salvar_item', methods=['POST'])
 def salvar_item():
     nome = request.form['nome']
@@ -95,6 +91,10 @@ def salvar_item():
 
     # Redirecionar para a página de cardápio
     return redirect(url_for('cardapio'))
+
+@app.route("/pedidos") 
+def pedidos():
+    return render_template("pedidos.html")
 
 @app.route("/restaurante", methods=['POST']) 
 def cadastrar_rest():
